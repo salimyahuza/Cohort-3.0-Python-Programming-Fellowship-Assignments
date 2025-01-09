@@ -1,12 +1,12 @@
 # Day 2: 30 Days of python programming
 
 # Declaring variables
-first_name = "Salim"  # Replace "Salim" with your first name
-last_name = "Yahuza"  # Replace "Yahuza" with your last name
+first_name = "John"  # Replace "John" with your first name
+last_name = "Doe"  # Replace "Doe" with your last name
 full_name = first_name + " " + last_name
 country = "Nigeria"  # Replace "Nigeria" with your country
 city = "Katsina"  # Replace "Katsina" with your city
-age = 40  # Replace 40 with your age
+age = 25  # Replace 25 with your age
 year = 2025  # Replace 2025 with the current year
 is_married = False  # Replace False with True if married
 is_true = True
@@ -31,12 +31,12 @@ print("Multiple Variables:", a, b, c)
 # Day 2: 30 Days of python programming - Level 2 Exercises
 
 # Variables from Level 1
-first_name = "Salim"
-last_name = "Yahuza"
+first_name = "John"
+last_name = "Doe"
 full_name = first_name + " " + last_name
 country = "Nigeria"
 city = "Katsina"
-age = 40
+age = 25
 year = 2025
 is_married = False
 is_true = True
