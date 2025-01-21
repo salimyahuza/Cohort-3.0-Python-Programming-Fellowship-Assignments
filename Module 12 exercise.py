@@ -50,3 +50,4 @@ print(is_valid_variable('firstname'))  # True
 # I am a teacher and I love teaching There is nothing as more rewarding as educating and empowering people I found teaching more interesting than any other jobs Does this motivate you to be a teacher
 # Most Frequent Words:
 [('I', 3), ('a', 2), ('teacher', 2)]
+
