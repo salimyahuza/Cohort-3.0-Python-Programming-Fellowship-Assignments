@@ -1,1 +1,79 @@
+# Difference between map, filter, and reduce
+# map: Applies a given function to all items in an input list and returns a list of the results
+numbers = [1, 2, 3, 4]
+squared = list(map(lambda x: x**2, numbers))
+print(squared)
 
+# filter: Applies a given function to all items in an input list and returns a list of items for which the function returns True.
+numbers = [1, 2, 3, 4]
+evens = list(filter(lambda x: x % 2 == 0, numbers))
+print(evens)
+
+# reduce: Applies a given function cumulatively to the items of a list, from left to right, to reduce the list to a single value. It is part of the functools module.
+from functools import reduce
+numbers = [1, 2, 3, 4]
+product = reduce(lambda x, y: x * y, numbers)
+print(product)
+
+# Difference between higher-order function, closure, and decorator
+# Higher-order function: A function that takes one or more functions as arguments or returns a function as a result.
+def higher_order_function(func):
+    def wrapper():
+        print("Before function call")
+        func()
+        print("After function call")
+    return wrapper
+# Closure: A function object that remembers values in enclosing scopes even if they are not present in memory.
+def outer_function(msg):
+    def inner_function():
+        print(msg)
+    return inner_function
+
+closure = outer_function("Hello, World!")
+closure()
+
+# Decorator: A special type of higher-order function that is used to modify the behavior of another function.
+def decorator_function(original_function):
+    def wrapper_function():
+        print("Wrapper executed this before {}".format(original_function.__name__))
+        return original_function()
+    return wrapper_function
+
+@decorator_function
+def display():
+    print("Display function ran")
+display()
+
+# Define a call function before map, filter, or reduce
+def call_function(func, data):
+    return func(data)
+
+numbers = [1, 2, 3, 4]
+
+# Using call_function with map
+result_map = call_function(lambda x: list(map(lambda y: y**2, x)), numbers)
+print(result_map)
+
+# Using call_function with filter
+result_filter = call_function(lambda x: list(filter(lambda y: y % 2 == 0, x)), numbers)
+print(result_filter)
+
+# Using call_function with reduce
+from functools import reduce
+result_reduce = call_function(lambda x: reduce(lambda y, z: y * z, x), numbers)
+print(result_reduce)
+
+# Use for loop to print each country in the countries list
+countries = ['Finland', 'Sweden', 'Norway']
+for country in countries:
+    print(country)
+
+# Use for loop to print each name in the names list
+names = ['Asabeneh', 'David', 'Donald', 'Bill']
+for name in names:
+    print(name)
+
+# Use for loop to print each number in the numbers list
+numbers = [1, 2, 3, 4, 5]
+for number in numbers:
+    print(number)
