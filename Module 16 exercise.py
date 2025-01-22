@@ -1,5 +1,4 @@
-# I have created a class called Statistics that includes methods to calculate various statistical measures
-# Here's the implementation and the output for the given data
+# This is a class called Statistics that includes methods to calculate various statistical measures
 import statistics
 from collections import Counter
 
@@ -82,3 +81,44 @@ description = data.describe()
 for key, value in description.items():
     print(f"{key}: {value}")
 
+# Level two exercise
+# This is a class called PersonAccount that includes specified properties and methods
+class PersonAccount:
+    def __init__(self, firstname, lastname):
+        self.firstname = firstname
+        self.lastname = lastname
+        self.incomes = []
+        self.expenses = []
+
+    def add_income(self, amount, description):
+        self.incomes.append({'amount': amount, 'description': description})
+
+    def add_expense(self, amount, description):
+        self.expenses.append({'amount': amount, 'description': description})
+
+    def total_income(self):
+        return sum(income['amount'] for income in self.incomes)
+
+    def total_expense(self):
+        return sum(expense['amount'] for expense in self.expenses)
+
+    def account_balance(self):
+        return self.total_income() - self.total_expense()
+
+    def account_info(self):
+        return {
+            'firstname': self.firstname,
+            'lastname': self.lastname,
+            'total_income': self.total_income(),
+            'total_expense': self.total_expense(),
+            'account_balance': self.account_balance()
+        }
+
+# Example usage:
+person = PersonAccount('John', 'Doe')
+person.add_income(5000, 'Salary')
+person.add_income(200, 'Freelance')
+person.add_expense(1500, 'Rent')
+person.add_expense(200, 'Groceries')
+
+print(person.account_info())
