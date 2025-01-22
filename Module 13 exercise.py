@@ -1,4 +1,3 @@
-# Exercise 1: Counting Lines and Words in Text Files
 def count_lines_words(filename):
     with open(filename, 'r') as file:
         lines = file.readlines()
@@ -17,7 +16,7 @@ print(f"Michelle Obama Speech: {michelle_lines} lines, {michelle_words} words")
 print(f"Donald Trump Speech: {donald_lines} lines, {donald_words} words")
 print(f"Melina Trump Speech: {melina_lines} lines, {melina_words} words")
 
-# Exercise 2: Finding the Ten Most Spoken Languages
+
 import json
 from collections import Counter
 
@@ -32,6 +31,7 @@ def most_spoken_languages(filename, top_n):
 # Example usage:
 print(most_spoken_languages(filename='./data/countries_data.json', top_n=10))
 print(most_spoken_languages(filename='./data/countries_data.json', top_n=3))
+
 
 # Exercise 3: Finding the Ten Most Populated Countries
 import json
@@ -81,6 +81,7 @@ def find_most_common_words(text_or_filename, num_words):
 print(find_most_common_words('sample.txt', 10))
 print(find_most_common_words('sample.txt', 5))
 
+
 # Exercise 6: Finding the Most Frequent Words in Speeches
 # Example usage:
 print(find_most_common_words('./data/obama_speech.txt', 10))
@@ -89,31 +90,25 @@ print(find_most_common_words('./data/donald_speech.txt', 10))
 print(find_most_common_words('./data/melina_trump_speech.txt', 10))
 
 # Exercise 7: Checking Text Similarity
-import re
 from collections import Counter
 from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
 
 def clean_text(text):
-    text = re.sub(r'\W+', ' ', text.lower())
-    return text
+    return re.sub(r'\W+', ' ', text.lower())
 
 def remove_support_words(text):
     words = text.split()
-    filtered_words = [word for word in words if word not in ENGLISH_STOP_WORDS]
-    return ' '.join(filtered_words)
+    return ' '.join(word for word in words if word not in ENGLISH_STOP_WORDS)
 
 def check_text_similarity(text1, text2):
-    text1 = clean_text(text1)
-    text2 = clean_text(text2)
-    text1 = remove_support_words(text1)
-    text2 = remove_support_words(text2)
+    text1 = remove_support_words(clean_text(text1))
+    text2 = remove_support_words(clean_text(text2))
     
     words1 = Counter(text1.split())
     words2 = Counter(text2.split())
     
     common_words = set(words1.keys()) & set(words2.keys())
     similarity = sum(min(words1[word], words2[word]) for word in common_words)
-    
     return similarity
 
 # Example usage:
@@ -150,4 +145,5 @@ counts = count_lines_with_keywords('./data/hacker_news.csv', keywords)
 print(f"Lines containing 'python': {counts['python']}")
 print(f"Lines containing 'javascript': {counts['javascript']}")
 print(f"Lines containing 'java' but not 'javascript': {counts['java'] - counts['javascript']}")
+
 
